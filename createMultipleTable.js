@@ -12,11 +12,18 @@ function isValid(start, end) {
 }
 
 function getMultipleTable(start, end) {
+  var result = "";
   for (var i = start; i <= end; i++) {
     for (var j = start; j <= i; j++) {
-      result += i + "*" + j + "=" + i * j
+      if(j < i){
+        result += j + "*" + i + "=" + i * j + "\t";
+      }else{
+        result += j + "*" + i + "=" + i * j;
+      }
     }
+    result += "\n"
   }
+  return result;
 }
 
 module.exports = {
